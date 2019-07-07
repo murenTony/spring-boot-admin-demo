@@ -1,0 +1,40 @@
+server:
+  port: 18081
+
+spring:
+  application:
+    name: monitor-center
+  boot:
+    admin:
+      ui:
+        resource-locations: 'classpath:/ui/,classpath:/static/'
+        template-location: 'classpath:/ui/'
+        title: 'Demo Project 服务状态监控'
+        brand: 'Demo Project 服务状态监控'
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    # 心跳时间
+    lease-renewal-interval-in-seconds: 10
+    # 懒觉时间
+    lease-expiration-duration-in-seconds: 30
+  client:
+    service-url:
+      defaultZone: http://my-eureka:18080/eureka/
+
+
+# turbine
+turbine:
+  app-config: admin-service,auth-service
+  cluster-name-expression: new String("default")
+  combine-host-port: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always

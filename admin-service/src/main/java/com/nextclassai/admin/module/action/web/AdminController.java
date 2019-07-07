@@ -1,4 +1,4 @@
-package com.nextclassia.admin.module.action.web;
+package com.nextclassai.admin.module.action.web;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-${AnsiColor.BRIGHT_CYAN}
+${AnsiColor.BRIGHT_RED}
 
 _______
 ___    |___   _______ _______ _______ ______ ________________

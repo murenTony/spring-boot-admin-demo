@@ -1,0 +1,26 @@
+server:
+  port: 18082
+
+spring:
+  application:
+    name: auth-service
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    # 心跳时间
+    lease-renewal-interval-in-seconds: 10
+    # 懒觉时间
+    lease-expiration-duration-in-seconds: 30
+  client:
+    service-url:
+      defaultZone: http://my-eureka:18080/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
