@@ -18,3 +18,13 @@ eureka:
     eviction-interval-timer-in-ms: 4000
     enable-self-preservation: false
     renewal-percent-threshold: 0.9
+
+# actuator暴露端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always

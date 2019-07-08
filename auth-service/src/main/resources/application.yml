@@ -8,6 +8,7 @@ spring:
 eureka:
   instance:
     prefer-ip-address: true
+    health-check-url-path: /actuator/health
     # 心跳时间
     lease-renewal-interval-in-seconds: 10
     # 懒觉时间
@@ -15,6 +16,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://my-eureka:18080/eureka/
+    registry-fetch-interval-seconds: 5
 
 management:
   endpoints:

@@ -12,9 +12,11 @@ eureka:
     lease-renewal-interval-in-seconds: 10
     # 懒觉时间
     lease-expiration-duration-in-seconds: 30
+    health-check-url-path: /actuator/health
   client:
     service-url:
       defaultZone: http://my-eureka:18080/eureka/
+    registry-fetch-interval-seconds: 5
 
 management:
   endpoints:

@@ -36,13 +36,13 @@
 	<br>
 	
 	<h2>Hystrix Dashboard</h2>
-	<input id="stream" type="textfield" size="120" placeholder="https://hostname:port/turbine/turbine.stream"></input>
+	<input id="stream" type="textfield" size="120" value="http://localhost:18081/turbine.stream"></input>
 	<br><br>
-	<i>Cluster via Turbine (default cluster):</i> https://turbine-hostname:port/turbine.stream
+	<i>Cluster via Turbine (default cluster):</i> http://localhost:18081/turbine.stream
 	<br>
-	<i>Cluster via Turbine (custom cluster):</i> https://turbine-hostname:port/turbine.stream?cluster=[clusterName]
+	<i>Cluster via Turbine (custom cluster):</i> http://localhost:18081/turbine.stream?cluster=[clusterName]
 	<br>
-	<i>Single Hystrix App:</i> https://hystrix-app:port/actuator/hystrix.stream
+	<i>Single Hystrix App:</i> http://service-name:port/actuator/hystrix.stream
 	<br><br>
 	Delay: <input id="delay" type="textfield" size="10" placeholder="2000"></input>ms 
 	&nbsp;&nbsp;&nbsp;&nbsp; 
