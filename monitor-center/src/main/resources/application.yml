@@ -11,6 +11,10 @@ spring:
         template-location: 'classpath:/ui/'
         title: 'Demo Project 服务状态监控'
         brand: 'Demo Project 服务状态监控'
+  security:
+    user:
+      name: admin
+      password: admin
 
 eureka:
   instance:

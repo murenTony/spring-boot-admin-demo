@@ -1,0 +1,39 @@
+package com.nextclassai.config;
+
+import de.codecentric.boot.admin.server.config.AdminServerProperties;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
+
+/**
+ * @author Ststorytony
+ * @date 2019/7/5 20:37
+ * Description:
+ */
+@Configuration
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    private final String adminContextPath;
+
+    public SecurityConfig(AdminServerProperties adminServerProperties) {
+        this.adminContextPath = adminServerProperties.getContextPath();
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        SavedRequestAwareAuthenticationSuccessHandler successHandler = new SavedRequestAwareAuthenticationSuccessHandler();
+        successHandler.setTargetUrlParameter("redirectTo");
+
+        http.authorizeRequests()
+                .antMatchers(adminContextPath + "/assets/**").permitAll()
+                .antMatchers(adminContextPath + "/login").permitAll()
+                .antMatchers(adminContextPath + "/actuator/**").permitAll()
+                .antMatchers(adminContextPath + "/turbine.stream/**").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin().loginPage(adminContextPath + "/login").successHandler(successHandler)
+                .and()
+                .logout().logoutUrl(adminContextPath + "/logout").and()
+                .httpBasic();
+    }
+}
